@@ -13,5 +13,3 @@ User must pass a file that contains a list of share paths to check - eg;
 
 ## Optional parameters
 User can define '-email true' to have the script email the final report to the defined email variables
-
-Note: These variables must be configured
