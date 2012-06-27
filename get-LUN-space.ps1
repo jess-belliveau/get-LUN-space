@@ -23,15 +23,6 @@ param (
 	[string]$email
 )
 
-# When using email - populate these variables
-# users you would like to send to
-$recipients = ""
-# Subject of the email when sent
-$subject = ""
-# The server that the email should indicate from
-$from = ""
-# The SMTP server to use when sending email
-$smtpserver = ""
 
 # and then... I got in!
 # dabbling in function for initialize variables
@@ -105,5 +96,15 @@ $report = $LunInfo | sort -Descending -Property "PercentUsed" | FT -AutoSize | o
 $report
 
 if ($email){
+	# When using email - ask users for variables
+	# users you would like to send to
+	$recipients = read-Host	"Enter reciepeint email address (comma separated)"
+	# Subject of the email when sent
+	$subject = read-Host "Enter email subject"
+	# The server that the email should indicate from
+	$from = read-Host "Enter originating server email address"
+	# The SMTP server to use when sending email
+	$smtpserver = read-Host "Provide SMTP server"
+
 	send-mailmessage -to $recipients -Subject $subject -from $from -smtpserver $smtpserver -body $report
 }
