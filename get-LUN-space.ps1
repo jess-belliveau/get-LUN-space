@@ -68,10 +68,8 @@ foreach ($lun in $filers){
 	# Compute the used space
 	$drive_used = $drive_total - $drive_free
 
-	# Lets get the percent free
-	$drive_percent = (($drive_used / $drive_total) * 100)
-	# Set the same to decimal places
-	$drive_percent = "{0:N2}" -f $drive_percent
+	# Lets get the percent free, set to decimal places
+	$drive_percent = "{0:P0}" -f ($drive_used/$drive_total)
 	
 	# Here we build our structure to store variables
 	# Define the object
