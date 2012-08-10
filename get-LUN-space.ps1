@@ -69,7 +69,7 @@ foreach ($lun in $filers){
 	$drive_used = $drive_total - $drive_free
 
 	# Lets get the percent free, set to decimal places
-	$drive_percent = "{0:P0}" -f ($drive_used/$drive_total)
+	$drive_percent = "{0:P2}" -f ($drive_used/$drive_total)
 	
 	# Here we build our structure to store variables
 	# Define the object
